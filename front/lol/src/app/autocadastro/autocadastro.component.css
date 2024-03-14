@@ -1,15 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-
 * {
-    margin: 0;
-    box-sizing: border-box;/**/
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  height: auto;
 }
 
 body {
   font-family: Arial, sans-serif;
-  margin: 5px;
-  padding: 3px;
+  margin: 0;
+  padding: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -17,16 +20,15 @@ body {
 }
 
 .wrapper {
-  position: absolute;
-  top: 50%; /* Define a posição verticalmente no meio da tela */
-  left: 50%; /* Define a posição horizontalmente no meio da tela */
-  transform: translate(-50%, -50%); /* Move o elemento de volta metade da sua própria largura e altura, para centralizar */
-  max-width: 420px;
-  width: 100%;
+  position: center;
+  align-items: center;
+  max-width: 480px;
   background: #fff;
   padding: 34px;
   border-radius: 6px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 30px auto;
+  width: fit-content;
 }
 
 .wrapper h1 {
@@ -78,8 +80,9 @@ form .input-box input {
   transition: all 0.3s ease;
 }
 
-.input-box input:focus, .input-box input:valid {
-  border-color: #4070f4;
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #007bff;
 }
 
 form .policy {
@@ -98,13 +101,12 @@ form h3 {
   color: #fff;
   letter-spacing: 1px;
   border: none;
-  background: #4070f4;
+  background: #007bff;
   cursor: pointer;
-  justify-content: center; /* Centraliza os botões horizontalmente */
 }
 
 .input-box.button input:hover {
-  background: #0e4bf1;
+  background: #007bff;
 }
 
 form .text h3 {
@@ -114,6 +116,6 @@ form .text h3 {
 }
 
 form .text h3 a {
-  color: #4070f4;
+  color: #007bff;
   text-decoration: none;
 }
