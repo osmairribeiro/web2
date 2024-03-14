@@ -1,0 +1,25 @@
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    margin: 10px 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+  .container {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .textbox {
+    margin: 0;
+  }
+  .p {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
