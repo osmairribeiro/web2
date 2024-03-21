@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CriarPedidoComponent } from './criar-pedido/criar-pedido.component';
 import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-inicial-cliente.component';
+import { PaginaInicialFuncComponent } from './pagina-inicial-func/pagina-inicial-func.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-i
     RouterOutlet,
     HomeComponent,
     CriarPedidoComponent,
-    PaginaInicialClienteComponent
+    PaginaInicialClienteComponent,
+    PaginaInicialFuncComponent
+
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
