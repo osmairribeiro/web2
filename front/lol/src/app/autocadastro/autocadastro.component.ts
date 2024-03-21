@@ -8,7 +8,7 @@ import { CadastroService } from '../cadastro.service';
   templateUrl: './autocadastro.component.html',
   styleUrls: ['./autocadastro.component.css']
 })
-export class RegistroComponent {
+export class AutoCadastroComponent {
   formData: any = {};
 
   constructor(private cadastroService: CadastroService) {}
@@ -29,7 +29,6 @@ export class RegistroComponent {
     // Limpar o formulário após o envio bem-sucedido
     this.formData = {};
   }
-}
 
   gerarSenha(): string {
     // Lógica para gerar uma senha de 4 dígitos
@@ -42,5 +41,8 @@ export class RegistroComponent {
     console.log(`Enviando e-mail para ${email} com a senha: ${senha}`);
     // Aqui você deve implementar o código para enviar um e-mail
   }
+}
+
+ 
 
 
