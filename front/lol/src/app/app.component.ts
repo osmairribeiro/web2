@@ -4,14 +4,16 @@ import { HomeComponent } from './home/home.component';
 import { CriarPedidoComponent } from './criar-pedido/criar-pedido.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-inicial-cliente.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
+    RouterOutlet,
     HomeComponent,
     CriarPedidoComponent,
+    PaginaInicialClienteComponent,
     HeaderComponent,
     FooterComponent
 ],
