@@ -7,10 +7,11 @@ import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-i
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'pedidos/novo', component: CriarPedidoComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'autocadastro', component: AutoCadastroComponent },
-    { path: 'pagina-inicial-cliente', component: PaginaInicialClienteComponent  },
-    { path: 'pedidos/consultar', component: ConsultarPedidoComponent }
+    { path: 'pedidos/novo', component: CriarPedidoComponent },
+    { path: 'pedidos/consultar/:id', component: ConsultarPedidoComponent },
+    { path: 'home/cliente', component: PaginaInicialClienteComponent }
 ];
