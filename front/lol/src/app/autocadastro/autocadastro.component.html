@@ -21,35 +21,35 @@
       <h2>Cadastro</h2>
       <form #formUsuario="ngForm" action="#">
           <div class="input-box">
-              <input type="text" placeholder="CPF" 
-              [(ngModel)]= "usuario.cpf"
+              <input type="text" placeholder="CPF" name="cpf"
+              [(ngModel)]= "user.cpf"
               #cpf ="ngModel" 
               required>
           </div>
           <div class="input-box">
-              <input type="text" placeholder="Nome" 
-              [(ngModel)]= "usuario.nome"
+              <input type="text" placeholder="Nome" name="nome"
+              [(ngModel)]= "user.nome"
               #nome ="ngModel"
               required>
           </div>
           <div class="input-box">
-              <input type="text" placeholder="Email" 
-              [(ngModel)]= "usuario.email"
+              <input type="text" placeholder="Email" name="email"
+              [(ngModel)]= "user.email"
               #email ="ngModel"
               required>
           </div>
 
           <div class="input-box">
-              <input type="text" placeholder="Endereço" 
-              [(ngModel)]= "usuario.endereco"
-              #endereco ="ngModel"
+              <input type="text" placeholder="Endereço" name="address"
+              [(ngModel)]= "user.address"
+              #address ="ngModel"
               required>
           </div>
 
           <div class="input-box">
-              <input type="text" placeholder="Telefone" 
-              [(ngModel)]= "usuario.telefone"
-              #telefone ="ngModel"
+              <input type="text" placeholder="Telefone" name="phone"
+              [(ngModel)]= "user.phone"
+              #phone ="ngModel"
               required>
           </div>
           <div class="policy">
@@ -57,7 +57,11 @@
               <h3>Aceito todos os termos e condições</h3>
           </div>
           <div class="input-box button">
-              <input type="Submit" value="Cadastra-se">
+            <button type="button" class="btn btn-primary"
+            (click)="inserir()"
+            [disabled]="!formUsuario.form.valid">
+            <i class="fa fa-save" aria-hidden="true"></i> Cadastrar-se
+         </button>
           </div>
           <div class="text">
               <!--<h3>Já tem uma cadastro? <a [routerLink]="['/login']">Login</a></h3>-->

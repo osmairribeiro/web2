@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CadastroService } from '../cadastro.service';
-import { Usuario } from '../shared/models/usuario';
-import { UsuarioService } from '../services/usuario.service';
+import { User } from '../shared/models/user';
+import { LoginService } from '../services/loginService';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,27 +18,27 @@ import { CommonModule } from '@angular/common';
 
 export class AutoCadastroComponent {
  @ViewChild('formUsuario') formUsuario! : NgForm;
-  usuario: Usuario = new Usuario();
+  user: User = new User();
 
   formData: any = {};
 
   
 
   constructor(private cadastroService: CadastroService,
-              private usuarioService: UsuarioService,
+              private loginService: LoginService,
               private router : Router) {}
 
   inserir() {
 
     if(this.formUsuario.valid) {
-      this.usuarioService.inserir(this.usuario);
-       // Após processar o cadastro no backend, você pode gerar uma senha de 4 dígitos
       const senha = this.gerarSenha();
+      this.user.password = senha;
+      this.loginService.inserir(this.user);
+       // Após processar o cadastro no backend, você pode gerar uma senha de 4 dígitos
+      
       // Agora você pode enviar um e-mail com a senha para o usuário
-      this.enviarEmail(this.formData.email, senha);
+      this.enviarEmail(this.user.email, senha);
       // Limpar o formulário após o envio bem-sucedido
-      this.formData = {};
-
       this.router.navigate(['/login'])
 
     }
