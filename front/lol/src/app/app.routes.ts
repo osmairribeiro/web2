@@ -12,6 +12,6 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'autocadastro', component: AutoCadastroComponent },
     { path: 'pedidos/novo', component: CriarPedidoComponent },
-    { path: 'pedidos/consultar/:id', component: ConsultarPedidoComponent },
+    { path: 'consultar-pedido', component: ConsultarPedidoComponent },
     { path: 'home/cliente', component: PaginaInicialClienteComponent }
 ];
