@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManutFuncComponent } from './manut-func.component';
+import { RoupaComponent } from './roupa.component';
 
-describe('ManutFuncComponent', () => {
-  let component: ManutFuncComponent;
-  let fixture: ComponentFixture<ManutFuncComponent>;
+describe('RoupaComponent', () => {
+  let component: RoupaComponent;
+  let fixture: ComponentFixture<RoupaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ManutFuncComponent]
+      imports: [RoupaComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ManutFuncComponent);
+    fixture = TestBed.createComponent(RoupaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

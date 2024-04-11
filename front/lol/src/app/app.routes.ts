@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AutoCadastroComponent } from './autocadastro/autocadastro.component';
 import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-inicial-cliente.component';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
+import { RoupaComponent } from './crud/roupa/roupa.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,5 +14,9 @@ export const routes: Routes = [
     { path: 'autocadastro', component: AutoCadastroComponent },
     { path: 'pedidos/novo', component: CriarPedidoComponent },
     { path: 'pedidos/consultar/:id', component: ConsultarPedidoComponent },
-    { path: 'home/cliente', component: PaginaInicialClienteComponent }
+    { path: 'home/cliente', component: PaginaInicialClienteComponent },
+    { path: 'roupas', component: RoupaComponent }
+    
+
+
 ];

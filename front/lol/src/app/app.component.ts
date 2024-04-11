@@ -6,6 +6,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-inicial-cliente.component';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-root',
@@ -17,7 +21,9 @@ import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.co
     PaginaInicialClienteComponent,
     HeaderComponent,
     FooterComponent,
-    ConsultarPedidoComponent
+    ConsultarPedidoComponent,
+    HttpClientModule,
+    CommonModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -1,33 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CadastroService } from '../cadastro.service';
+import { Usuario } from '../shared/models/usuario';
+import { UsuarioService } from '../services/usuario.service';
+import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-autocadastro',
   templateUrl: './autocadastro.component.html',
-  styleUrls: ['./autocadastro.component.css']
+  styleUrls: ['./autocadastro.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule]
 })
+
 export class AutoCadastroComponent {
+ @ViewChild('formUsuario') formUsuario! : NgForm;
+  usuario: Usuario = new Usuario();
+
   formData: any = {};
 
-  constructor(private cadastroService: CadastroService) {}
+  
 
-  submitForm() {
-    this.cadastroService.salvarCadastro(this.formData);
-    this.formData = {}; // Limpar o formulário após o envio
+  constructor(private cadastroService: CadastroService,
+              private usuarioService: UsuarioService,
+              private router : Router) {}
 
-     // Aqui você pode enviar os dados do formulário para o seu backend para processamento
-    // Por exemplo, você pode usar um serviço HTTP para enviar os dados para um endpoint no seu servidor
+  inserir() {
 
-    // Após processar o cadastro no backend, você pode gerar uma senha de 4 dígitos
-    const senha = this.gerarSenha();
+    if(this.formUsuario.valid) {
+      this.usuarioService.inserir(this.usuario);
+       // Após processar o cadastro no backend, você pode gerar uma senha de 4 dígitos
+      const senha = this.gerarSenha();
+      // Agora você pode enviar um e-mail com a senha para o usuário
+      this.enviarEmail(this.formData.email, senha);
+      // Limpar o formulário após o envio bem-sucedido
+      this.formData = {};
 
-    // Agora você pode enviar um e-mail com a senha para o usuário
-    this.enviarEmail(this.formData.email, senha);
+      this.router.navigate(['/login'])
 
-    // Limpar o formulário após o envio bem-sucedido
-    this.formData = {};
+    }
   }
 
   gerarSenha(): string {

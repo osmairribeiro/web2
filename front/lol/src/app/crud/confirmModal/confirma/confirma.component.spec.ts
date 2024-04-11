@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManutRoupasComponent } from './manut-roupas.component';
+import { ConfirmaComponent } from './confirma.component';
 
-describe('ManutRoupasComponent', () => {
-  let component: ManutRoupasComponent;
-  let fixture: ComponentFixture<ManutRoupasComponent>;
+describe('ConfirmaComponent', () => {
+  let component: ConfirmaComponent;
+  let fixture: ComponentFixture<ConfirmaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ManutRoupasComponent]
+      imports: [ConfirmaComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ManutRoupasComponent);
+    fixture = TestBed.createComponent(ConfirmaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
