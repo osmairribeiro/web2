@@ -15,8 +15,7 @@ export const routes: Routes = [
     { path: 'pedidos/novo', component: CriarPedidoComponent },
     { path: 'pedidos/consultar/:id', component: ConsultarPedidoComponent },
     { path: 'home/cliente', component: PaginaInicialClienteComponent },
-    { path: 'roupas', component: RoupaComponent }
+    { path: 'roupas', component: RoupaComponent },
+    { path: 'consultar-pedido', component: ConsultarPedidoComponent }
     
-
-
 ];

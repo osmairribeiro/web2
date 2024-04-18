@@ -1,23 +1,18 @@
-<div class="container-fluid">
-    <table>
-        <thead>
-        <tr>
-            <th>Nº pedido</th>
-            <th>Peça de Roupa</th>
-            <th>Quantidade</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>123</td>
-            <td>cueca</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>456</td>
-            <td>camiseta</td>
-            <td>4</td>
-        </tr>
-        </tbody>
-     </table>
+
+<!-- consultar-pedido.component.html -->
+<div class="container">
+  <h1>Consulta de Pedido</h1>
+  <form>
+      <label for="numeroPedido">Número do Pedido:</label>
+      <input type="text" id="numeroPedido" name="numeroPedido" required [(ngModel)]="numeroPedido">
+      <button type="button" (click)="buscarPedido()">Pesquisar</button>
+  </form>
+</div>
+
+<div *ngIf="this.pedidoDetalhes" id="over" class="overlay">
+  <div class="popup">
+      <h2>Dados do Pedido</h2>
+      <div [innerHTML]="this.pedidoDetalhes">{{this.pedidoDetalhes}}</div>
+      <a class="close" (click)="fecharModal()" href="#">Fechar</a>
+  </div>
 </div>
