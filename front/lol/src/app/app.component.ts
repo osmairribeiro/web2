@@ -6,8 +6,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-inicial-cliente.component';
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { LoginService } from './services/loginService';
 import { User } from './shared/models/user';
+
 
 @Component({
   selector: 'app-root',
@@ -19,7 +22,9 @@ import { User } from './shared/models/user';
     PaginaInicialClienteComponent,
     HeaderComponent,
     FooterComponent,
-    ConsultarPedidoComponent
+    ConsultarPedidoComponent,
+    HttpClientModule,
+    CommonModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
