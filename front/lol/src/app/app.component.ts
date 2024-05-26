@@ -8,7 +8,7 @@ import { PaginaInicialClienteComponent } from './pagina-inicial-cliente/pagina-i
 import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { LoginService } from './services/loginService';
+import { LoginService } from './services/login.service';
 import { User } from './shared/models/user';
 
 

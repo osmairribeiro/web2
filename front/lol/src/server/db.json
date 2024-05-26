@@ -124,5 +124,17 @@
       "saldo": 3500,
       "id": "6b2d"
     }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "cpf":  "08553192911",
+      "nome": "thales teste",
+      "email": "thalesgc2011@hotmail.com",
+      "address": "rua das pedras",
+      "phone": "41987973190",
+      "password": "123",
+      "profile": "ADMIN"
+    }
   ]
 }

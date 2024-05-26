@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Login } from '../shared/models/login';
-import { LoginService } from '../services/loginService';
+import { LoginService } from '../services/login.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit{
     private loginService: LoginService,
     private router: Router,
     private route: ActivatedRoute){ 
-      if (this.loginService.usuarioLogado) {
-        this.router.navigate( ["/home"] )
-      }
+      // if (this.loginService.usuarioLogado) {
+      //   this.router.navigate( ["/home"] )
+      // }
     }
 
     public logar(): void {
