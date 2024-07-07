@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CriarPedidoComponent } from './criar-pedido/criar-pedido.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LoginService } from './services/loginService';
 import { User } from './shared/models/user';
+import { RoupaComponent } from './crud/roupa/roupa.component';
+
 
 
 @Component({
@@ -24,7 +26,10 @@ import { User } from './shared/models/user';
     FooterComponent,
     ConsultarPedidoComponent,
     HttpClientModule,
-    CommonModule
+    CommonModule, 
+    RouterModule,
+    RoupaComponent,
+    
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
