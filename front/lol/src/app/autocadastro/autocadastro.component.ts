@@ -5,6 +5,8 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../services/usuario.service';
+import mailService, { MailService } from '../services/mail.service';
+import e from 'express';
 
 
 
@@ -26,21 +28,18 @@ export class AutoCadastroComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService,
               private router : Router) {}
-              
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
 
   inserir() {
-debugger;
     if(this.formUsuario.valid) {
       const senha = this.gerarSenha();
       this.user.password = senha;
       this.usuarioService.addUser(this.user);
       console.log('sua senha é: ' + senha)
-       // Após processar o cadastro no backend, você pode gerar uma senha de 4 dígitos
       
-      // Agora você pode enviar um e-mail com a senha para o usuário
       this.enviarEmail(this.user.email, senha);
       // Limpar o formulário após o envio bem-sucedido
       this.router.navigate(['/login'])
@@ -57,7 +56,14 @@ debugger;
   enviarEmail(email: string | undefined, senha: string) {
     // Lógica para enviar um e-mail com a senha
     console.log(`Enviando e-mail para ${email} com a senha: ${senha}`);
-    // Aqui você deve implementar o código para enviar um e-mail
+
+    let message = "Este email é um teste";
+    let subject = "TESTANDO EMAIL";
+    mailService.to = email;
+    mailService.message = message;
+    mailService.subject = subject;
+    mailService.sendMail();
+
   }
 }
 

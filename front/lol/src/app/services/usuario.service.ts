@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from '../shared/models/user';
-import { Login } from '../shared/models/login';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
 
-  private BASE_URL = 'http://localhost:3000/usuarios';
+  private BASE_URL = 'http://localhost:3000/usuarios/';
 
   httpOptions = {
     headers: new Headers({
