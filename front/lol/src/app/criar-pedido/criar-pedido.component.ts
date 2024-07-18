@@ -5,13 +5,13 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './criar-pedido.component.html',
-  styleUrl: './criar-pedido.component.css'
+  styleUrl: './criar-pedido.component.css',
 })
 export class CriarPedidoComponent {
-    @ViewChild('createClothingForm') createClothingForm!: NgForm;
+  /*@ViewChild('createClothingForm') createClothingForm!: NgForm;
     clothing!: Clothing;
 
-    constructor(private clothingService: ClothingService, private router: Router) {}
+    //constructor(private clothingService: ClothingService, private router: Router) {}
 
     ngOnInit(): void {
         this.clothing = new Clothing();
@@ -29,5 +29,5 @@ export class CriarPedidoComponent {
             },
         });
         }
-    }
+    }*/
 }

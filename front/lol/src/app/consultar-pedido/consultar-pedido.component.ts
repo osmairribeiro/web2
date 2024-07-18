@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './consultar-pedido.component.html',
-  styleUrl: './consultar-pedido.component.css'
+  styleUrl: './consultar-pedido.component.css',
 })
 export class ConsultarPedidoComponent {
-    @ViewChild('editClothingForm') editClothingForm!: NgForm;
+  /*@ViewChild('editClothingForm') editClothingForm!: NgForm;
     clothing!: Clothing;
   
     constructor(
@@ -41,5 +41,5 @@ export class ConsultarPedidoComponent {
           },
         });
       }
-    }
+    }*/
 }
