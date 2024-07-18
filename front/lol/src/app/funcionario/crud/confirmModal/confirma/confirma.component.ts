@@ -4,16 +4,16 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-confirma',
   standalone: true,
-  imports: [],
   templateUrl: './confirma.component.html',
-  styleUrl: './confirma.component.css'
+  styleUrls: ['./confirma.component.css']
 })
 export class ConfirmaComponent {
-
+  message: string = ""; 
+  
   constructor(public bsModalRef: BsModalRef) {}
 
-  onConfirm(): void {
-    
+
+     onConfirm(): void {
     this.bsModalRef.hide();
   }
 
@@ -24,5 +24,4 @@ export class ConfirmaComponent {
   onClose(): void {
     this.bsModalRef.hide();
   }
-
 }

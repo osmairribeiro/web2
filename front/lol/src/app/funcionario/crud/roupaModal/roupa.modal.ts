@@ -1,12 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CampoObrigatorio, MoedaDirective, Numerico } from '../../shared/directives';
-import { MoedaPipe } from '../../shared/pipes';
-
-
-
-
+import { CampoObrigatorio, MoedaDirective, Numerico } from '../../../shared/directives';
+import { MoedaPipe } from '../../../shared/pipes';
 
 interface Roupa {
     id: number;

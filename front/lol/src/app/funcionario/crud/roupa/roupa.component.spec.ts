@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoupaComponent } from './roupa.component';
+import { RoupaComponent } from '../../../crud/roupa/roupa.component';
 
 describe('RoupaComponent', () => {
   let component: RoupaComponent;

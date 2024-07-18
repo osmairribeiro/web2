@@ -3,8 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RoupaModalComponent } from '../roupaModal/roupa.modal';
-import { RoupaService } from '../../services/roupa.service';
-import { MoedaPipe } from '../../shared/pipes';
+import { RoupaService } from '../../../services/roupa.service';
+//import { RoupaService } from '../../services/roupa.service';
+//import { MoedaPipe } from '../../shared/pipes';
+import { MoedaPipe } from '../../../shared/pipes';
+import { ConfirmaComponent } from '../confirmModal/confirma/confirma.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 interface Roupa {
   id: number;
@@ -22,12 +26,17 @@ interface Roupa {
   providers: [RoupaService]
 })
 export class RoupaComponent implements OnInit {
+  //roupas: any[] = [];
   roupas: Roupa[] = [];
   roupaSelecionada: Roupa = { id: 0, nome: '', preco: 0, prazo: 0 };
   editando: boolean = false;
   showModal: boolean = false;
+  modalRef?: BsModalRef;
 
-  constructor(private roupaService: RoupaService) {}
+  constructor(
+    private roupaService: RoupaService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
         this.listaRoupas();
@@ -76,8 +85,27 @@ export class RoupaComponent implements OnInit {
     this.showModal = false;
   }
 
+
+
   deleteRoupa(id: number) {
-    console.log('Deletar Roupa', id);
-    this.roupas = this.roupas.filter(r => r.id !== id);
+    const initialState = {
+      message: 'Tem certeza que deseja excluir?'
+    };
+    this.modalRef = this.modalService.show(ConfirmaComponent, {initialState});
+
+    this.modalRef.content.onConfirm = () => {
+      this.roupas = this.roupas.filter(roupa => roupa.id !== id);
+      this.modalRef?.hide();
+    };
+
+    this.modalRef.content.onDecline = () => {
+      this.modalRef?.hide();
+    };
   }
+
+
+  // deleteRoupa(id: number) {
+  //   console.log('Deletar Roupa', id);
+  //   this.roupas = this.roupas.filter(r => r.id !== id);
+  // }
 }
