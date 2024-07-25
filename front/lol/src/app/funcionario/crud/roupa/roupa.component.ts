@@ -45,7 +45,8 @@ export class RoupaComponent implements OnInit {
   listaRoupas(): void {
     this.roupaService.getRoupa().subscribe({
       next: (roupas) => {
-        this.roupas = roupas;
+        //this.roupas = roupas;
+        this.roupas = roupas.map(roupa => ({ ...roupa, preco: parseFloat(roupa.preco.toString()) }));
         console.log('Roupas recebidas:', roupas);
       },
       error: (err) => console.error(err),
@@ -69,6 +70,7 @@ export class RoupaComponent implements OnInit {
 
   salvarRoupa(roupa: Roupa) {
     console.log('Salvar Roupa', roupa);
+    roupa.preco = parseFloat(roupa.preco.toString().replace(/[^\d.-]/g, ''));
     if (roupa.id) {
       const index = this.roupas.findIndex(r => r.id === roupa.id);
       this.roupas[index] = roupa;

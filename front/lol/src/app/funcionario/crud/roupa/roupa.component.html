@@ -22,7 +22,7 @@
           <li class="list-group-item list-item" *ngFor="let roupa of roupas">
             <div class="id-col">{{ roupa.id }}</div>
             <div class="name-col">{{ roupa.nome }}</div>
-            <div class="price-col">{{ roupa.preco | moedaPipe}}</div>
+            <div class="price-col">{{ roupa.preco|currency:'BRL':'symbol':'1.2-2'}}</div>
             <div class="prazo-col">{{ roupa.prazo }}</div>
             <div class="actions-col">
               <button class="btn btn-sm btn-outline-primary" (click)="editarRoupa(roupa)">Editar</button>
