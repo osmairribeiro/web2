@@ -13,5 +13,7 @@ export const routes: Routes = [
     { path: 'autocadastro', component: AutoCadastroComponent },
     { path: 'pedidos/novo', component: CriarPedidoComponent },
     { path: 'pedidos/consultar/:id', component: ConsultarPedidoComponent },
-    { path: 'home/cliente', component: PaginaInicialClienteComponent }
+    { path: 'home/cliente', component: PaginaInicialClienteComponent },
+    { path: 'pagina-inicial-cliente', redirectTo: '/home', pathMatch: 'full' },
+
 ];
