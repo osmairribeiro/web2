@@ -1,11 +1,9 @@
-import com.empresa.lavanderia.model.Roupa;
+package br.net.lol.repository;
+
+import br.net.lol.model.RoupaModel;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RoupaRepository extends JpaRepository<Roupa, Long> {
+public interface RoupaRepository extends JpaRepository<RoupaModel, Long> {
 }
 
-
-
-public class RoupaRepository {
-    
-}
