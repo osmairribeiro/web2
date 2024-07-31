@@ -23,10 +23,16 @@ export class RoupaModalComponent {
     @Output() onSave = new EventEmitter<Roupa>();
     @Output() onCancel = new EventEmitter<void>();
   
+    // save() {
+    //   this.onSave.emit(this.roupa);
+    // }
+  
     save() {
+      //com conversão
+      this.roupa.preco = MoedaDirective.parseCurrency((<HTMLInputElement>document.getElementById('preco')).value);
       this.onSave.emit(this.roupa);
     }
-  
+
     cancel() {
       this.onCancel.emit();
     }

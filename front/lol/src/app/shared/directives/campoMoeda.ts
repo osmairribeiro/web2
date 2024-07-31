@@ -16,9 +16,6 @@ export class MoedaDirective {
     const input = this.el.nativeElement;
     let value = input.value.replace(/\D/g, ''); // Mantém apenas dígitos
 
-    // Remover zeros à esquerda
-    value = value.replace(/^0+/, '');
-
     if (value.length > 0) {
       // Converte o valor para um número
       const numericValue = parseFloat(value) / 100;
@@ -32,7 +29,12 @@ export class MoedaDirective {
       // Mantém a posição do cursor
       const start = input.selectionStart;
       const end = input.selectionEnd;
-      input.setSelectionRange(start, end);
+      setTimeout(() => input.setSelectionRange(start, end), 0);
     }
+  }
+
+  static parseCurrency(value: string): number {
+    // Remove todos os caracteres que não sejam dígitos ou ponto decimal
+    return parseFloat(value.replace(/[^\d.-]/g, '')) / 100;
   }
 }
