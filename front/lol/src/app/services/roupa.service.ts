@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs';
 import { Roupa } from '../shared/models/roupas';
+
 
 
 @Injectable({
@@ -15,8 +17,10 @@ export class RoupaService {
 
   constructor(private http: HttpClient) { }
 
-  getAllRoupa(): Observable<Roupa[]> {
-    return this.http.get<Roupa[]>(this.apiUrl);
+  getRoupa(): Observable<Roupa[]> {
+    return this.http.get<Roupa[]>(this.apiUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
   // addRoupa(roupa: Roupa): Observable<Roupa> {
@@ -29,7 +33,9 @@ export class RoupaService {
 
   saveRoupa(roupa: Roupa): Observable<Roupa> {
     if (roupa.id) {
-      return this.http.put<Roupa>(`${this.apiUrl}/${roupa.id}`, roupa);
+      return this.http.put<Roupa>(`${this.apiUrl}/${roupa.id}`, roupa).pipe(
+        catchError(this.handleError)
+      );
     } else {
       return this.http.post<Roupa>(this.apiUrl, roupa);
     }
@@ -40,7 +46,24 @@ export class RoupaService {
   // }
 
   deleteRoupa(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      catchError(this.handleError)
+    );
   }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Erro do lado do cliente
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      // Erro do lado do servidor
+      errorMessage = `Código do erro: ${error.status}\nMensagem: ${error.message}`;
+    }
+    // Aqui você pode adicionar lógica para logar o erro ou exibir uma mensagem ao usuário
+    console.error(errorMessage);
+    return throwError(() => new Error(errorMessage));
+  }
+
 
 }

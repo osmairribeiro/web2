@@ -28,7 +28,7 @@ export class RoupaModalComponent {
     // }
   
     save() {
-      //com conversão
+      //precisou de conversão
       this.roupa.preco = MoedaDirective.parseCurrency((<HTMLInputElement>document.getElementById('preco')).value);
       this.onSave.emit(this.roupa);
     }
