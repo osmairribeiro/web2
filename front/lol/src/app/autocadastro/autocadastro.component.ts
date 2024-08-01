@@ -6,6 +6,12 @@ import { LoginService } from '../services/loginService';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UsuarioService } from '../services/usuario.service';
+import mailService, { MailService } from '../services/mail.service';
+import e from 'express';
+import { Numerico } from '../shared/directives';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+
 
 
 @Component({
@@ -13,7 +19,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './autocadastro.component.html',
   styleUrls: ['./autocadastro.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule]
+  imports: [CommonModule, FormsModule, RouterModule, Numerico, NgxMaskDirective],
 })
 
 export class AutoCadastroComponent {
