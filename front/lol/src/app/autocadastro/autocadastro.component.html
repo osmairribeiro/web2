@@ -24,6 +24,9 @@
               <input type="text" placeholder="CPF" name="cpf"
               [(ngModel)]= "user.cpf"
               #cpf ="ngModel" 
+              appNumerico
+              appCpfMask
+              cpf
               required>
           </div>
           <div class="input-box">
@@ -47,9 +50,11 @@
           </div>
 
           <div class="input-box">
-              <input type="text" placeholder="Telefone" name="phone"
+              <input type="text" placeholder="Telefone" name="phone" 
               [(ngModel)]= "user.phone"
               #phone ="ngModel"
+              appNumerico
+              phone
               required>
           </div>
           <div class="policy">

@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from '../shared/models/user';
-import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import mailService from '../services/mail.service';
 import { UsuarioService } from '../services/usuario.service';
-import mailService, { MailService } from '../services/mail.service';
-import e from 'express';
+import { CpfMaskDirective, Numerico, PhoneDirective } from '../shared/directives';
+import { User } from '../shared/models/user';
+import { CpfPipe } from '../shared/pipes';
 
 
 
@@ -15,7 +15,7 @@ import e from 'express';
   templateUrl: './autocadastro.component.html',
   styleUrls: ['./autocadastro.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule]
+  imports: [CommonModule, FormsModule, RouterModule, Numerico, CpfPipe, CpfMaskDirective, PhoneDirective]
 })
 
 export class AutoCadastroComponent implements OnInit {
